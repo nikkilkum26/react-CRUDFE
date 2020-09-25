@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import './App.css';
 
 function App() {
@@ -8,19 +8,37 @@ function App() {
   const [studList, setStudList] = useState([])
 
   useEffect(() => {
-    Axios.get("https://crud-studlist.herokuapp.com/read").then((response) => {
+    axios.get("https://crud-studlist.herokuapp.com/read").then((response) => {
       console.log(response)
       setStudList(response.data);
     })
   }, [])
 
   const addToList = () => {
-    console.log(Name + Age);
-    Axios.post("https://crud-studlist.herokuapp.com/insert", {
-      Name: Name,
+
+    axios({
+      method: 'post',
+      url: "https://crud-studlist.herokuapp.com/insert",
+      data: {
+        Name: Name,
       Age: Age
+      }
+    }).then((response)=>{
+
+      // window.location.reload();
+      console.log(response.data)
     })
-    window.location.reload();
+    
+    // console.log(Name + Age);
+    // axios.post("https://crud-studlist.herokuapp.com/insert", {
+    //   Name: Name,
+    //   Age: Age
+    // }).then((response)=>{
+
+    //   // window.location.reload();
+    //   console.log(response.data)
+    // })
+    
   }
 
   return (
