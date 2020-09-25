@@ -59,7 +59,7 @@ function App() {
         }}
       /></form>
       <button class="btn btn-success" onClick={addToList}>Add to list</button>
-      <h1> FoodList</h1>
+      <h1> Students List</h1>
       <table class="table table-striped table-responsive center">
       <thead>
         <tr>
