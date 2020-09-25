@@ -25,7 +25,7 @@ function App() {
       }
     }).then((response)=>{
 
-      // window.location.reload();
+      window.location.reload();
       console.log(response.data)
     })
     
